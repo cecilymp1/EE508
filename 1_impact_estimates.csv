@@ -1,0 +1,4 @@
+"Approach","Cardoso_number_of_treated_units","Cardoso_average_abs_SMD_of_six_covariates","Cardoso_estimated_average_impact","Cardoso_estimated_avoided_deforestation","Lula_number_of_treated_units","Lula_average_abs_SMD_of_six_covariates","Lula_estimated_average_impact","Lula_estimated_avoided_deforestation","Cardoso_average_abs_SMD_of_six_covariates_before","Cardoso_average_abs_SMD_of_six_covariates_after"
+"Naive (no matching)",5619,NA,-2.08390322771598,8570,6175,NA,-1.82933114622068,11296,69.1797626328951,1.53031110872336
+"Matching",5619,NA,0.410401096385542,8570,NA,NA,NA,NA,69.1797626328951,1.53031110872336
+"Caliper Matching",5619,NA,NA,8570,NA,NA,NA,NA,69.1797626328951,1.53031110872336
