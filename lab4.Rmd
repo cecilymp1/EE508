@@ -1,0 +1,542 @@
+---
+title: "Lab 4"
+author: "cecily wang"
+date: "2023-11-30"
+output:
+  html_document: default
+ 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This R Markdown document is made interactive using Shiny. Unlike the more traditional workflow of creating static reports, you can now create documents that allow your readers to change the assumptions underlying your analysis and see the results immediately. 
+
+To learn more, see [Interactive Documents](http://rmarkdown.rstudio.com/authoring_shiny.html).
+
+## Inputs and Outputs
+
+You can embed Shiny inputs and outputs in your document. Outputs are automatically updated whenever inputs change.  This demonstrates how a standard R plot can be made interactive by wrapping it in the Shiny `renderPlot` function. The `selectInput` and `sliderInput` functions create the input widgets used to drive the plot.
+
+  
+# Install required packages
+#install.packages('tidyverse')
+#install.packages('Matching')
+
+
+
+
+```{r}
+# Activate the packages
+#library(tidyverse)
+#library(Matching)
+```
+```{r}
+# Create a function to prefix strings with the working folder's file path
+wf <- function(x) paste('/Users/cecilywang/Downloads/EE508/lab4/', x, sep='')
+```
+
+```{r}
+# Import the two tables needed for analysis
+px <- read.csv(wf('data/amazon_px.csv'))
+pa <- read.csv(wf('data/amazon_pas.csv'), encoding='latin1')
+
+d <- merge(px, pa, on='wdpaid', all.x=TRUE)
+```
+
+```{r}
+ggplot(d) +
+  geom_point(aes(x=x, y=y))
+```
+```{r}
+ggplot(d) +
+  geom_point(aes(x=x, y=y, color=vcf00))
+```
+```{r}
+ggplot(d) +
+  geom_point(aes(x=x, y=y, color=vcf00), alpha=0.5, size=0.25)
+```
+
+```{r}
+ggplot(d) +
+  geom_point(aes(x=x, y=y, color=vcf00), alpha=0.5, size=0.25) +
+  scale_color_gradient(low='white', high='forestgreen')
+```
+
+```{r}
+ggplot(d) +
+  geom_point(aes(x=x, y=y, color=vcf00), alpha=0.5, size=0.25) +
+  scale_color_gradient(low='white', high='forestgreen') + 
+  coord_fixed()
+ggplot(d) +
+  geom_point(aes(x=x, y=y, color=vcf00), alpha=0.5, size=0.25) +
+  scale_color_gradient(low='white', high='forestgreen') +
+  coord_fixed() + 
+  ggtitle('Tree Cover, 2000') 
+ggsave(filename=wf('results/vcf00.png'), width=6, height=4)
+
+```
+```{r}
+# Transform 'state' into a factor
+d$state_cat <- factor(d$state)
+
+# Create a scatter plot mapping 'state_cat' as a categorical variable
+ggplot(d) +
+  geom_point(aes(x=x, y=y, color=state_cat)) +
+  coord_fixed() +
+  ggtitle('Amazon State Categories')
+
+# Now, let's make a map of protected area types 'patype' and save it
+# First, ensure 'patype' is a factor if it's not already
+d$patype <- factor(d$patype)
+
+# Create the plot mapping 'patype' as a categorical variable
+patype_map <- ggplot(d) +
+  geom_point(aes(x=x, y=y, color=patype), size=0.25) +
+  coord_fixed() +
+  ggtitle('Protected Area Types') +
+  theme(legend.position = "bottom")  # Adjust legend position
+
+# Save the created map to a file
+#ggsave(filename=wf('results/protected_area_types.png'), plot=patype_map, width=6, height=4)
+
+```
+
+
+
+#part b
+
+
+# Covariate Distributions and Naïve Impact Analysis
+```{r}
+# Create a new column 'cat' that identifies the protection category
+d$cat <- ifelse(d$wdpaid == 0, 'unprotected',
+                ifelse(d$status_yr >= 1998 & d$status_yr <= 2002, 'cardoso',
+                       ifelse(d$status_yr >= 2003 & d$status_yr <= 2007, 'lula', NA)))
+```
+
+```{r}
+# Discard pixels that were protected outside the specified time periods
+d <- d[!is.na(d$cat), ]
+
+# Count the number of pixels in each category
+table(d$cat)
+```
+
+```{r}
+# Plot the location of three groups
+ggplot(d) +
+  geom_point(aes(x=x, y=y, color=cat), alpha=0.5, size=0.25) + 
+  coord_fixed()
+```
+```{r}
+# Check group differences in terms of the covariate 'traveltime'
+ggplot(d) + 
+  geom_density(aes(x=traveltime, color=cat))
+```
+
+```{r}
+# Add the means of the covariate 'traveltime' and save the plot
+d_means <- d %>%
+  group_by(cat) %>%
+  summarize(cat_mean = mean(traveltime))
+
+ggplot(d) + 
+  geom_density(aes(x=traveltime, color=cat)) +
+  geom_vline(data=d_means, aes(xintercept=cat_mean, color=cat),
+             linetype='dashed')
+```
+# Repeat the plotting for 'distedg05' and 'slope' and save the plots!!!!
+
+```{r}
+# Create a new column 'cat' in dataframe 'd' to identify the category of protection
+d$cat <- ifelse(d$wdpaid == 0, 'unprotected', 
+                ifelse(d$status_yr >= 1998 & d$status_yr <= 2002, 'cardoso',
+                       ifelse(d$status_yr >= 2003 & d$status_yr <= 2007, 'lula', NA)))
+
+# Discard the pixels with no 'cat' value
+d <- d[!is.na(d$cat), ]
+
+# Count how many pixels are there in each category
+table(d$cat)
+
+# Map where these three groups are located
+ggplot(d) +
+  geom_point(aes(x=x, y=y, color=cat), alpha=0.5, size=0.25) +
+  coord_fixed()
+
+# Check if the groups differ in terms of their covariates 'traveltime'
+ggplot(d) + 
+  geom_density(aes(x=traveltime, color=cat))
+
+# Add the means of the covariate 'traveltime' and visualize them
+d_means <- d %>% 
+  group_by(cat) %>%
+  summarize(cat_mean = mean(traveltime, na.rm = TRUE))
+
+ggplot(d) + 
+  geom_density(aes(x=traveltime, color=cat)) +
+  geom_vline(data=d_means, aes(xintercept=cat_mean, color=cat), linetype="dashed")
+
+# Save the plot for 'traveltime'
+#ggsave(filename=wf('results/covdist_original_traveltime.png'), width=6, height=4)
+
+# Repeat the process for 'distedg05'
+d_means_distedg05 <- d %>% 
+  group_by(cat) %>%
+  summarize(cat_mean = mean(distedg05, na.rm = TRUE))
+
+ggplot(d) + 
+  geom_density(aes(x=distedg05, color=cat)) +
+  geom_vline(data=d_means_distedg05, aes(xintercept=cat_mean, color=cat), linetype="dashed")
+
+# Save the plot for 'distedg05'
+#ggsave(filename=wf('results/covdist_original_distedg05.png'), width=6, height=4)
+
+# Repeat the process for 'slope'
+d_means_slope <- d %>% 
+  group_by(cat) %>%
+  summarize(cat_mean = mean(slope, na.rm = TRUE))
+
+ggplot(d) + 
+  geom_density(aes(x=slope, color=cat)) +
+  geom_vline(data=d_means_slope, aes(xintercept=cat_mean, color=cat), linetype="dashed")
+
+# Save the plot for 'slope'
+#ggsave(filename=wf('results/covdist_original_slope.png'), width=6, height=4)
+
+
+```
+
+
+
+```{r}
+# Calculate the average deforestation for each group between 2006 and 2010
+avg_def_cardoso <- mean(d[d$cat == 'cardoso', 'prod0610'], na.rm = TRUE)
+avg_def_lula <- mean(d[d$cat == 'lula', 'prod0610'], na.rm = TRUE)
+avg_def_unprotected <- mean(d[d$cat == 'unprotected', 'prod0610'], na.rm = TRUE)
+
+# Calculate the mean differences and perform t-tests
+mean_diff_cardoso <- avg_def_unprotected - avg_def_cardoso
+mean_diff_lula <- avg_def_unprotected - avg_def_lula
+
+t_test_cardoso <- t.test(d[d$cat == 'cardoso', 'prod0610'], d[d$cat == 'unprotected', 'prod0610'])
+t_test_lula <- t.test(d[d$cat == 'lula', 'prod0610'], d[d$cat == 'unprotected', 'prod0610'])
+
+# Compute the number of treated units and avoided deforestation, converting the ratios to percentages
+number_treated_cardoso <- nrow(d[d$cat == 'cardoso', ])
+number_treated_lula <- nrow(d[d$cat == 'lula', ])
+
+avoided_deforestation_cardoso <- mean_diff_cardoso * number_treated_cardoso * 100
+avoided_deforestation_lula <- mean_diff_lula * number_treated_lula * 100
+
+# Compile the results into a data frame
+impact_estimates <- data.frame(
+  Approach = "Naive (no matching)",
+  Cardoso_number_of_treated_units = number_treated_cardoso,
+  Cardoso_average_abs_SMD_of_six_covariates = NA, # To be filled later
+  Cardoso_estimated_average_impact = -mean_diff_cardoso * 100, # Convert to percent and ensure negative sign for reduction
+  Cardoso_estimated_avoided_deforestation = round(avoided_deforestation_cardoso),
+  Lula_number_of_treated_units = number_treated_lula,
+  Lula_average_abs_SMD_of_six_covariates = NA, # To be filled later
+  Lula_estimated_average_impact = -mean_diff_lula * 100, # Convert to percent and ensure negative sign for reduction
+  Lula_estimated_avoided_deforestation = round(avoided_deforestation_lula)
+)
+
+print(impact_estimates)
+
+# Save the results to a CSV file in the deliverables folder
+#write.csv(impact_estimates, wf('results/1_impact_estimates.csv'), row.names = FALSE)
+
+
+```
+
+######C Impact estimates
+```{r}
+# Extract the treatment and control groups
+d.tr <- d[d$cat == 'cardoso', ]
+d.ct <- d[d$cat == 'unprotected', ]
+
+# Add a 'tr' column for treatment indication
+d.tr$tr <- 1
+d.ct$tr <- 0
+
+# Combine both subsets into a single input dataset
+d.in <- rbind(d.tr, d.ct)
+
+# Specify the covariates for matching
+cov <- c('elev', 'slope', 'floodable', 'vcf05', 'distedg05', 'traveltime')
+
+# Perform the matching
+m <- Match(Y = d.in$prod0610, Tr = d.in$tr, X = d.in[, cov])
+
+# Retrieve the matched dataset using the indexes from Match output
+d.m <- rbind(d.in[m$index.treated, ], d.in[m$index.control, ])
+
+# Create a new categorical variable 'group' for mapping purposes
+d.m$group <- ifelse(d.m$tr, 'treatment units', 'matched controls')
+
+# Plot the matched units using ggplot
+matched_units_plot <- ggplot(d.m) +
+  geom_point(aes(x = x, y = y, color = group), size = 0.25) +
+  coord_fixed() +
+  ggtitle('Map of Matched Units - Cardoso') +
+  theme(legend.position = "bottom")  # Adjust legend position
+
+# Save the map to a file in the deliverables folder
+#ggsave(filename = wf('results/1_matched_units_cardoso.png'), plot = matched_units_plot, width = 6, height = 4)
+print(matched_units_plot)
+
+
+```
+```{r}
+# Plot the distribution of 'traveltime' for treatment units vs. matched controls with means
+traveltime_plot <- ggplot(d.m) +
+  geom_density(aes(x = traveltime, fill = group), alpha = 0.5) +
+  geom_vline(data = d.m %>% group_by(group) %>% summarise(mean_traveltime = mean(traveltime)), 
+             aes(xintercept = mean_traveltime, color = group), linetype = "dashed") +
+  ggtitle('Distribution of Traveltime for Treatment vs Matched Controls') +
+  labs(fill = "Group", color = "Group") +
+  theme(legend.position = "bottom")
+
+# Save the 'traveltime' plot
+#ggsave(filename = wf('results/1_covdist_cardoso_matched_traveltime.png'), 
+       #plot = traveltime_plot, width = 6, height = 4)
+
+# Repeat for 'distedg05'
+distedg05_plot <- ggplot(d.m) +
+  geom_density(aes(x = distedg05, fill = group), alpha = 0.5) +
+  geom_vline(data = d.m %>% group_by(group) %>% summarise(mean_distedge05 = mean(distedg05)), 
+             aes(xintercept = mean_distedge05, color = group), linetype = "dashed") +
+  ggtitle('Distribution of DistEdge05 for Treatment vs Matched Controls') +
+  labs(fill = "Group", color = "Group") +
+  theme(legend.position = "bottom")
+
+# Save the 'distedg05' plot
+#ggsave(filename = wf('results/1_covdist_cardoso_matched_distedge05.png'), 
+       #plot = distedg05_plot, width = 6, height = 4)
+
+# Repeat for 'slope'
+slope_plot <- ggplot(d.m) +
+  geom_density(aes(x = slope, fill = group), alpha = 0.5) +
+  geom_vline(data = d.m %>% group_by(group) %>% summarise(mean_slope = mean(slope)), 
+             aes(xintercept = mean_slope, color = group), linetype = "dashed") +
+  ggtitle('Distribution of Slope for Treatment vs Matched Controls') +
+  labs(fill = "Group", color = "Group") +
+  theme(legend.position = "bottom")
+
+# Save the 'slope' plot
+#ggsave(filename = wf('results/1_covdist_cardoso_matched_slope.png'), 
+       #plot = slope_plot, width = 6, height = 4)
+
+print(traveltime_plot)
+print(distedg05_plot)
+print(slope_plot)
+```
+
+```{r}
+# Review the matching object summary to understand the impact estimate
+matching_summary <- summary(m)
+matching_summary # only for inspection, not assigned to a variable or printed to a csv.
+
+# Extract the estimated effect of the treatment
+estimated_effect_cardoso <- m$est
+
+# Calculate the avoided deforestation for Cardoso protection areas using the estimated effect
+weighted_number_treated_cardoso <- m$wnobs
+avoided_deforestation_cardoso_match <- estimated_effect_cardoso * weighted_number_treated_cardoso * 100 # convert to percentage
+
+# Update the existing 'impact_estimates' DataFrame with the results for the matching approach for Cardoso
+impact_estimates["Matching", "Approach"] <- "Matching"
+impact_estimates["Matching", "Cardoso_number_of_treated_units"] <- weighted_number_treated_cardoso
+impact_estimates["Matching", "Cardoso_estimated_average_impact"] <- -estimated_effect_cardoso * 100 # convert to percent and ensure negative sign for reduction
+impact_estimates["Matching", "Cardoso_estimated_avoided_deforestation"] <- round(avoided_deforestation_cardoso_match)
+
+# Note here we would repeat the matching for Lula, however, since this is hypothetical and the code for Lula is not given, we'll proceed with saving the current results.
+
+# Finally, save the updated results to the CSV file
+#write.csv(impact_estimates, wf('results/1_impact_estimates.csv'), row.names = FALSE)
+
+
+```
+```{r}
+# The actual analysis for Lula would follow similar steps: extract treatment and control, perform Match, 
+# calculate estimates, and add the results to the DataFrame before writing to CSV.
+# Extract the treatment and control groups
+d.trl <- d[d$cat == 'lula', ]
+d.ctl <- d[d$cat == 'unprotected', ]
+
+# Add a 'tr' column for treatment indication
+d.trl$trl <- 1
+d.ctl$trl <- 0
+
+# Combine both subsets into a single input dataset
+d.inl <- rbind(d.trl, d.ctl)
+
+# Specify the covariates for matching
+covl <- c('elev', 'slope', 'floodable', 'vcf05', 'distedg05', 'traveltime')
+
+# Perform the matching
+ml <- Match(Y = d.inl$prod0610, Tr = d.inl$trl, X = d.inl[, covl])
+
+# Retrieve the matched dataset using the indexes from Match output
+d.ml <- rbind(d.inl[ml$index.treated, ], d.inl[ml$index.control, ])
+
+# Create a new categorical variable 'group' for mapping purposes
+d.ml$group <- ifelse(d.ml$trl, 'treatment units', 'matched controls')
+matching_summaryl <- summary(ml)
+# Extract the estimated effect of the treatment
+estimated_effect_lula <- ml$est
+
+# Calculate the avoided deforestation for Cardoso protection areas using the estimated effect
+weighted_number_treated_lula <- ml$wnobs
+avoided_deforestation_lula_match <- estimated_effect_lula * weighted_number_treated_lula * 100 # convert to percentage
+
+# Update the existing 'impact_estimates' DataFrame with the results for the matching approach for Cardoso
+impact_estimates["Matching", "Approach"] <- "Matching"
+impact_estimates["Matching", "Lula_number_of_treated_units"] <- weighted_number_treated_lula
+impact_estimates["Matching", "Lula_estimated_average_impact"] <- -estimated_effect_lula * 100 # convert to percent and ensure negative sign for reduction
+impact_estimates["Matching", "Lula_estimated_avoided_deforestation"] <- round(avoided_deforestation_lula_match)
+impact_estimates
+
+```
+########D
+```{r}
+# Step 1: Run MatchBalance
+mb <- MatchBalance(tr ~ elev + slope + floodable + vcf05 + distedg05 
+                  + traveltime, data = d.in, match.out = m, nboots = 0)
+
+# Step 2 and 3: Examine SMD and compute AASMD before and after matching
+covariates <- c('elev', 'slope', 'floodable', 'vcf05', 'distedg05', 'traveltime')
+
+smd_before <- c()
+smd_after <- c()
+
+for (i in 1:length(covariates)) {
+  smd_before <- c(smd_before, mb$BeforeMatching[[i]]$sdiff)
+  smd_after <- c(smd_after, mb$AfterMatching[[i]]$sdiff)
+}
+
+aasmd_before <- mean(abs(smd_before))
+aasmd_after <- mean(abs(smd_after))
+print(aasmd_after)
+print(aasmd_before)
+# Step 4: Update the CSV with the new AASMD values
+#impact_estimates$Cardoso_average_abs_SMD_of_six_covariates_before <- aasmd_before
+#impact_estimates$Cardoso_average_abs_SMD_of_six_covariates_after <- aasmd_after
+# Add Lula's AASMDs here if available
+
+# Save the updated CSV file
+#write.csv(impact_estimates, wf('results/1_impact_estimates.csv'), row.names = FALSE)
+
+# Step 5: Create a barplot for covariate balance improvement
+#balance <- data.frame(
+ # covariate = rep(covariates, each = 2),
+ # SMD = c(smd_before, smd_after),
+ # Matched = rep(c("Before", "After"), times = length(covariates))
+#)
+
+#ggplot(balance, aes(x = covariate, y = SMD, fill = Matched)) +
+ # geom_bar(stat = 'identity', position = position_dodge()) +
+  #theme_minimal() +
+  #labs(x = "Covariate", y = "Standardized Mean Difference (SMD)", fill = "Matching Condition") +
+  #ggtitle("Balance Improvement for Each Covariate")
+
+
+
+```
+
+LULA
+```{r}
+# Step 1: Run MatchBalance
+mbl <- MatchBalance(tr ~ elev + slope + floodable + vcf05 + distedg05 
+                  + traveltime, data = d.in, match.out = m, nboots = 0)
+
+# Step 2 and 3: Examine SMD and compute AASMD before and after matching
+covariates <- c('elev', 'slope', 'floodable', 'vcf05', 'distedg05', 'traveltime')
+
+smd_beforel <- c()
+smd_afterl <- c()
+
+for (i in 1:length(covariates)) {
+  smd_beforel <- c(smd_beforel, mbl$BeforeMatching[[i]]$sdiff)
+  smd_afterl <- c(smd_afterl, mbl$AfterMatching[[i]]$sdiff)
+}
+
+aasmd_beforel <- mean(abs(smd_beforel))
+aasmd_afterl <- mean(abs(smd_afterl))
+print(aasmd_afterl)
+print(aasmd_beforel)
+# Step 4: Update the CSV with the new AASMD values
+#impact_estimates$Lula_average_abs_SMD_of_six_covariates_before <- aasmd_beforel
+#impact_estimates$Lula_average_abs_SMD_of_six_covariates_after <- aasmd_afterl
+impact_estimates
+
+# Add Lula's AASMDs here if available
+```
+
+obs calips 24448 6557 6209 6214
+```{r}
+# Step 1: Perform the matching with calipers
+m <- Match(Y = d.inl$prod0610, Tr = d.inl$trl, X = d.inl[, cov], caliper = 1)
+# Step 2 and 3: Examine SMD and compute AASMD before and after matching
+covariates <- c('elev', 'slope', 'floodable', 'vcf05', 'distedg05', 'traveltime')
+summary(m)
+
+smd <- c()
+for (i in 1:length(cov)) {
+  smd <- c(smd, m$AfterMatching[[i]]$sdiff)
+}
+print(mean(abs(smd)))
+
+#smd_beforel <- c()
+#smd_afterl <- c()
+
+#for (i in 1:length(covariates)) {
+  #smd_beforel <- c(smd_beforel, ml$BeforeMatching[[i]]$sdiff)
+ # smd_afterl <- c(smd_afterl, ml$AfterMatching[[i]]$sdiff)
+#}
+
+#aasmd_beforel <- mean(abs(smd_beforel))
+#aasmd_afterl <- mean(abs(smd_afterl))
+
+# Step 4: Update the CSV with the new AASMD values
+#impact_estimates$Lula_average_abs_SMD_of_six_covariates_before <- aasmd_beforel
+#impact_estimates$Lula_average_abs_SMD_of_six_covariates_after <- aasmd_afterl
+# Add Lula's AASMDs here if available
+#impact_estimates
+#print(summary(m))
+
+```
+EXACT MATCHING
+```{r}
+# Adding 'state' as a covariate for exact matching
+cov2 <- c('elev', 'slope', 'floodable', 'vcf05', 'distedg05', 'traveltime', 'state')
+
+# Perform exact matching with caliper for all covariates except 'state'
+m_exact <- Match(Y = d.in$prod0610, Tr = d.in$tr, X = d.in[, cov2], caliper=1, 
+                 exact=c(F, F, F, F, F, F, T))
+
+# Reviewing the summary output, uncomment to run
+summary(m_exact)
+
+```
+BIAS
+```{r}
+# Perform bias-adjusted matching with exact matching on 'state' and caliper for other covariates
+m_bias_adjusted <- Match(Y = d.inl$prod0610, Tr = d.inl$trl, X = d.inl[, cov2], caliper=1,
+                         BiasAdjust = TRUE, exact = c(F, F, F, F, F, F, T))
+
+# You can optionally review the matching summary
+summary(m_bias_adjusted)
+
+# Continue with further analysis steps as needed
+
+
+
+
+
+```
+
+```{r}
