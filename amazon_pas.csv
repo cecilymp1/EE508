@@ -1,0 +1,429 @@
+wdpaid,name,status_yr,patype
+43,Rio Trombetas,1979,SP
+44,Jarú,1979,SP
+53,Jaú,1980,SP
+54,Pico da Neblina,1979,SP
+55,Amazônia,1974,SP
+56,Pacaás Novos,1979,SP
+61,Lençóis Maranhenses,1981,SP
+2215,Anavilhanas,1981,SP
+2219,Maracá-Jipioca,1981,SP
+2222,Rio Acre,1981,SP
+4891,Jari,1982,SP
+5126,Guaporé,1982,SP
+5127,Abufari,1982,SP
+6074,Tapirapé,1989,SP
+10795,Gurupi,1988,SP
+10802,Tapajós,1974,SU
+10803,Caxiuaná,1961,SU
+10815,Jamari,1984,SU
+10826,Niquiá,1985,SP
+10830,Juami-Japurá,1985,SP
+10845,Jutaí-Solimoes,1983,SP
+19275,Serra do Divisor,1989,SP
+19505,Koatinemo,2003,IT
+19506,Kararaô,1999,IT
+19745,Amapá,1989,SU
+19746,Purus,1988,SU
+19747,Tefé,1989,SU
+19759,Bom Futuro,1988,SU
+19769,Mamirauá,1996,SU
+31752,Uatumá,1990,SP
+31759,Amazonas,1989,SU
+31763,Mapiá-Inauini,1989,SU
+31769,Saracá Taquera,1989,SU
+31770,Tapirapé-Aquiri,1989,SU
+31774,Alto Juruá,1990,SU
+31775,Chico Mendes,1990,SU
+31776,Rio Cajari,1990,SU
+31777,Rio Ouro Preto,1990,SU
+33520,Nhamundá,1989,SP
+33521,Serra do Araçá,1990,SP
+33608,Samuel,1989,SP
+33609,Serra dos Três Irmãos,1990,SP
+33610,Traçadal,1990,SP
+33611,Rio Ouro Preto,1990,SP
+33612,Guajará Mirim,1990,SP
+33617,Serra dos Reis,1995,SP
+33704,Rio Vermelho B,1990,SU
+33705,Rio Vermelho C,1990,SU
+33707,Rio Madeira A,1990,SU
+33708,Rio Machado,1990,SU
+33712,Rio Roosevelt,1999,SP
+33714,Rio Preto/Jacundá,1996,SU
+33716,Rio Pacaás Novos,1995,SU
+33723,Nukini,1986,IT
+33724,Poyanawa,2002,IT
+33725,Jaminawa do Igarapé Preto,1999,IT
+33727,Jaminawa Arara do Rio Bagé,1977,IT
+33728,Kaxinawá da Praia do Carapanã,2002,IT
+33729,Kampa do Rio Amonea,1995,IT
+33730,Kaxinawá Ashaninka do Rio Breu,2002,IT
+33731,Kaxinawá do Rio Jordão,1996,IT
+33732,Alto Tarauacá,2004,IT
+33733,Kampa e Isolados do Rio Envira,1999,IT
+33734,Kaxinawá do Rio Humaitá,1996,IT
+33736,Arara do Igarapé Humaitá,2005,IT
+33738,Rio Gregório,1983,IT
+33739,Kaxinawá Colônia Vinte e Sete,1996,IT
+33741,Igarapé do Caucho,1998,IT
+33743,Kulina Igarapé do Pau,2001,IT
+33744,Kaxinawá Nova Olinda,2002,IT
+33745,Mamoadate,1999,IT
+33746,Cabeceira do Rio Acre,1999,IT
+33747,Alto Rio Purus,2002,IT
+33749,Antimary,1997,SU
+33751,Macauá,1988,SU
+33809,Galibi,1983,IT
+33810,Jumina,1995,IT
+33811,Uaça,1995,IT
+33812,Waiãpi,1997,IT
+33821,Morro dos Seis Lagos,1990,SP
+33831,Javari-Buriti,1985,SP
+33843,Boca do Acre,1999,IT
+33844,Camicua,1995,IT
+33846,Coata-Laranjal,2004,IT
+33848,Deni,2004,IT
+33849,Estrela da Paz,1996,IT
+33853,Gavião,2002,IT
+33860,Igarapé Grande,2004,IT
+33865,Ipixuna,2001,IT
+33866,Itaitinga,2003,IT
+33867,Jaquiri,1995,IT
+33868,Jatuarana,2003,IT
+33871,Katukina/Kaxinawá,1999,IT
+33872,Kaxarari,1999,IT
+33874,Kulina do Medio Jurua,2002,IT
+33875,Lago Aiapua,1995,IT
+33876,Lago do Beruri,1996,IT
+33878,Lauro Sodré,2004,IT
+33879,Macarrão,2002,IT
+33882,Seruini/Mariene,2004,IT
+33885,Meria,1995,IT
+33886,Miratu,2004,IT
+33888,Natal/Felicidade,1997,IT
+33889,Nhamundá/Mapuera,1994,IT
+33890,Nove de Janeiro,2001,IT
+33891,Padre,2004,IT
+33892,Paracuhuba,1997,IT
+33894,Paumari do Lago Marahã,2003,IT
+33895,Pirahã,2001,IT
+33897,Rio Biá,2002,IT
+33898,Recreio/São Félix,1995,IT
+33899,São Leopoldo,2002,IT
+33901,Tabocal,1999,IT
+33904,Tenharim Marmelos,1996,IT
+33905,Terra Vermelha,1997,IT
+33906,Betania,1996,IT
+33907,Tikúna de Feijoal,2004,IT
+33908,Évare II,1997,IT
+33909,Évare I,1996,IT
+33910,Tukuna Porto Espiritual,1996,IT
+33911,Tikuna de Santo Antonio,2002,IT
+33912,Vui-Uata-In,1998,IT
+33916,Trincheira,1998,IT
+33917,Uati-Paraná,1995,IT
+33918,Tukuna Umariaçu,2001,IT
+33919,Uneiuxi,2001,IT
+33920,Vale do Javari,2002,IT
+33922,Waimiri-Atroari,1999,IT
+33925,Zuruahã,1996,IT
+33926,Alto Turiaçu,1983,IT
+33928,Awa,2005,IT
+33931,Caru,1983,IT
+33939,Rio Pindaré,1983,IT
+33942,Apiaka/Kayabi,1988,IT
+33951,Capoto/Jarina,1999,IT
+33952,Erikbaktsa,1987,IT
+33953,Escondido,1999,IT
+33958,Japuira,1994,IT
+33981,Serra Morena,1990,IT
+33990,Zoró,1987,IT
+33991,Alto Rio Guamá,1994,IT
+33993,Anambé,1994,IT
+33994,Andirá-Marau,1987,IT
+33995,Apyterewa,2004,IT
+33998,Araweté Igarapé Ipixuna,1997,IT
+34000,Baú,2004,IT
+34001,Xikrin do Rio Catete,1994,IT
+34004,Kayapó,1989,IT
+34007,Cayabi,1982,IT
+34009,Mãe Maria,1989,IT
+34010,Munduruku,2004,IT
+34012,Paquiçamba,1994,IT
+34013,Parakanã,1989,IT
+34015,Sai-Cinza,1989,IT
+34016,Sororó,1989,IT
+34017,Tembé,1994,IT
+34018,Trocará,1983,IT
+34022,Xambioá,1998,IT
+34026,Rio Cautário,1990,SU
+34030,Igarapé Lage,1981,IT
+34031,Igarapé Lourdes,2002,IT
+34032,Igarapé Ribeirão,1981,IT
+34033,Karipuna,1999,IT
+34034,Karitiana,2002,IT
+34036,Rio Mequens,1997,IT
+34037,Pacaas Novas,1995,IT
+34038,Rio Branco,2002,IT
+34039,Rio Guaporé,1997,IT
+34040,Rio Negro Ocaia,1981,IT
+34041,Roosevelt,2000,IT
+34042,Sagarana,2002,IT
+34043,Sete de Setembro,1999,IT
+34045,Uru-Eu-Wau-Wau,1988,IT
+34059,Jacamim,2004,IT
+34067,Muriru,2003,IT
+34077,Santa Inez,1995,IT
+34084,WaiWai,2004,IT
+34665,Arara,1994,IT
+34841,Turé/Mariquita II,1994,IT
+34842,Trincheira Bacaja,1998,IT
+34843,Cachoeira Seca,2004,IT
+34845,Menkragnotí,1994,IT
+34846,Praia do Mangue,NA,IT
+34847,Praia do Índio,NA,IT
+34849,Rio Paru D'Este,1998,IT
+41089,Rio Madeira B,1996,SU
+67692,Projeto Dinâmica Biológica de Fragmentos Florestais,1985,SP
+101761,Rio Iratapuru,1997,SU
+115417,Campinas/Katukina,1999,IT
+115418,Tenharim do Igarapé Preto,2005,IT
+115511,Acimã,1999,IT
+115512,Alto Sepatini,1999,IT
+115513,Apurinã do Igarapé São João,2004,IT
+115514,Apurinã Igarapé Tauamirim,1996,IT
+115515,Apurinã Km 124 BR-317,1999,IT
+115516,Banawá,2004,IT
+115517,Barreira da Missão,1991,IT
+115518,Boa Vista - AM,2002,IT
+115519,Cacau do Tarauaca,1997,IT
+115520,Caititu,1988,IT
+115524,Catipari/Mamoria,2000,IT
+115526,Cunhã-Sapucaia,2003,IT
+115527,Cuia,1997,IT
+115530,Guajahã,2000,IT
+115532,Igarapé Capana,2004,IT
+115533,Ilha do Camaleão,1997,IT
+115535,Jarawara/Jamamadi/Kanamati,2002,IT
+115536,Juma,2004,IT
+115539,Kanamari do Rio Juruá,2002,IT
+115543,Paumari do Lago Manissuã,2004,IT
+115545,Maraã Urubaxi,2000,IT
+115566,Parana do Boa Boa,2002,IT
+115568,Paumari do Lago Paricá,1999,IT
+115569,Paumari do Rio Ituxi,1999,IT
+115570,Paumari do Cuniua,1999,IT
+115571,Peneri/Tacaquiri,2000,IT
+115574,Rio Manicoré,2001,IT
+115577,São Pedro do Sepatini,1999,IT
+115579,Sepoti,2004,IT
+115584,Tumiã,1999,IT
+115772,Rio Ronuro,1998,SP
+115777,Rio Madeirinha,1999,SP
+115783,Massaco,1999,IT
+115891,Extremo Norte do Estado do Tocantins,1992,SU
+116088,Frexal,1992,SU
+198281,Viruá,1998,SP
+198350,Humaitá,1998,SU
+198351,Serra da Mocidade,1998,SP
+198359,Altamira,1998,SU
+198360,Carajás,1998,SU
+198361,Itacaiunas,1998,SU
+198362,Itaituba I,1998,SU
+198363,Itaituba II,1998,SU
+351711,Terra do Meio,2005,SP
+351712,Serra do Pardo,2005,SP
+351713,Riozinho da Liberdade,2005,SU
+351714,Anauá,2005,SU
+351747,Rio do Cautário,2001,SU
+351748,Serra da Cutia,2001,SP
+351749,Barreiro das Antas,2001,SU
+351750,Seringal Nova Esperança,1999,SP
+351752,São Francisco,2001,SU
+351755,Santa Rosa do Purus,2001,SU
+351756,Cazumbá-Iracema,2002,SU
+351759,Alto Tarauacá,2000,SU
+351761,Lago do Cuniã,1999,SU
+351762,Cuniã,2001,SP
+351763,Jatuarana,2002,SU
+351767,Lago do Capanã Grande,2004,SU
+351769,Médio Juruá,1997,SU
+351772,Baixo Juruá,2001,SU
+351773,Rio Jutaí,2002,SU
+351776,Tapajós-Arapiuns,1998,SU
+351777,Auati-Paraná,2001,SU
+351779,Mulata,2001,SU
+351783,Soure,2001,SU
+351784,Montanhas do Tumucumaque,2002,SP
+351785,Riozinho do Anfrísio,2004,SU
+351786,Verde para Sempre,2004,SU
+351792,Jacundá,2004,SU
+351795,Nascentes da Serra do Cachimbo,2005,SP
+351800,Mapuá,2005,SU
+351801,Itatupã-Baquiá,2005,SU
+351802,Ipaú-Anilzinho,2005,SU
+351805,Arióca Pruanã,2005,SU
+351814,Jamanxim,2006,SU
+351815,Crepori,2006,SU
+351816,Trairão,2006,SU
+351817,Amana,2006,SU
+351818,Jamanxim,2006,SP
+351819,Rio Novo,2006,SP
+351820,Balata-Tufari,2005,SU
+351830,Rio Iriri,2006,SU
+351831,Terra Grande-Pracuúba,2006,SU
+351832,Rio Unini,2006,SU
+351833,Campos Amazônicos,2006,SP
+351834,Arapixi,2006,SU
+351835,Pau-Rosa,2001,SU
+351838,Gurupá-Melgaço,2006,SU
+351839,Juruena,2006,SP
+351842,Chandles,2004,SP
+351843,Rio Gregório,2004,SU
+351844,Mogno,2004,SU
+351845,Rio Liberdade,2004,SU
+351935,Antônio Mujica Nava,1996,SP
+351997,Cristalino I,2000,SP
+351998,Cristalino II,2001,SP
+352020,Lajeado,2001,SP
+352027,Xingu,2001,SP
+352057,Tucumã,2002,SP
+352061,Encontro das Águas,2004,SP
+352062,Serra dos Martírios/Andorinhas,1996,SP
+352076,Guariba/Roosevelt,1999,SU
+352134,Amanã,1998,SU
+352135,Catua Ipixuna,2002,SU
+352136,Piagaçu Purus,2003,SU
+352137,Rio Amapá,2005,SU
+352138,Uacari,2005,SU
+352139,Cujubim,2003,SU
+352140,Uatumã,2004,SU
+352141,Maués,2003,SU
+352142,Canumã,2005,SU
+352143,Rio Urubu,2003,SU
+352146,Rio Negro-Setor Sul,1995,SP
+352148,Sumauma,2003,SP
+352149,Rio Negro-Setor Norte,1995,SP
+352150,Aripuanã,2005,SU
+352151,Guariba,2005,SU
+352152,Guariba,2005,SP
+352153,Manicoré,2005,SU
+352154,Barariti,2005,SU
+352155,Apuí,2005,SU
+352156,Sucunduri,2005,SU
+352157,Sucunduri,2005,SP
+352158,Aripuanã,2005,SU
+352159,Rio Jaciparaná,1996,SU
+352160,Maracatiara,1995,SU
+352161,Massaranduba,1995,SU
+352162,Angelim-jequitibá,1995,SU
+352163,Ipê,1995,SU
+352164,Sucupira,1995,SU
+352165,Cedro,1996,SU
+352166,Mogno,1995,SU
+352167,Garrote,1995,SU
+352168,Aquariquara,1995,SU
+352169,Seringueiras,1995,SU
+352170,Roxinho,1995,SU
+352171,Freijó,1995,SU
+352172,Piquiá,1995,SU
+352173,Castanheira,1995,SU
+352174,Itauba,1995,SU
+352175,Gavião,1996,SU
+352176,Periquitos,1996,SU
+352177,Mutum,1996,SU
+352178,Araras,1996,SU
+352179,Tucano,1996,SU
+352180,Jatobá,1995,SU
+352181,Curralinho,1995,SU
+352182,Rio Pedras Negras,1995,SU
+352197,Igarapés do Juruena,2002,SP
+352198,Grão Pará,2006,SP
+352199,Faro,2006,SU
+352200,Parus,2006,SU
+352201,Trombetas,2006,SU
+352202,Maicuru,2006,SP
+352204,Iriri,2006,SU
+352217,Pucuruí-Ararão,2002,SU
+352218,Alcobaça,NA,SU
+352219,Monte Alegre,2001,SP
+352257,Médio Rio Negro II,2000,IT
+352258,Alto Rio Negro,2000,IT
+352259,Médio Rio Negro I,2000,IT
+352260,Trombetas/Mapuera,2005,IT
+352261,Zo'e,2003,IT
+352262,Balaio,2005,IT
+352272,Kulina do Rio Envira,1996,IT
+352273,Jaminaua/Envira,2003,IT
+352274,Arara do Rio Branco,1998,IT
+352275,Água Preta/Inari,2000,IT
+352276,Camadeni,2000,IT
+352277,São Domingos do Jacapari e Estação,2005,IT
+352278,Riozinho do Alto Envira,2005,IT
+352279,Rio Apaporis,2000,IT
+352280,Nova Esperança do Rio Jandiatuba,2004,IT
+352281,Bom Intento,2004,IT
+352282,Matintin,2005,IT
+352287,São Sebastião,2005,IT
+352291,Maraitá,2004,IT
+352293,São Francisco do Canimari,2004,IT
+352294,Sapotal,2005,IT
+352298,Mawetek,2004,IT
+352299,Kampa do Igarapé Primavera,2002,IT
+352300,Kaxinawá do Baixo Rio Jordão,2002,IT
+352301,Kaxinawá Seringal Independência,NA,IT
+352303,Inauini/Teuini,2000,IT
+352310,Cuiu-Cuiu,2004,IT
+352311,Rio Téa,2000,IT
+352314,Parana do Paricá,2001,IT
+352316,Espírito Santo,2005,IT
+352317,Acapuri de Cima,2004,IT
+352319,Kumaru do Lago Ualá,2005,IT
+352320,Porto Praia,2004,IT
+352321,Tupã-Supé,2004,IT
+352322,Marajai,1997,IT
+352323,Cajuhiri Atravessado,2001,IT
+352325,Fortaleza do Patauá,2004,IT
+352327,Fortaleza do Castanho,2003,IT
+352331,Rio Urubu,2005,IT
+352332,Lago do Marinheiro,2005,IT
+352333,Patauá,2004,IT
+352334,Apipica,2004,IT
+352338,Paraná do Arauató,2005,IT
+352339,Rio Jumas,2004,IT
+352341,São Pedro,1999,IT
+352343,Miguel/Josefa,2002,IT
+352346,Hi Merimã,2005,IT
+352348,Apurinã do Igarapé Mucuim,2004,IT
+352353,Rio Pardo,2004,IT
+352354,Tenharim Marmelos (Gleba B),2005,IT
+352355,Pinatuba,2001,IT
+352357,Ariramba,NA,IT
+352358,Lago Jauari,2005,IT
+352359,Lago Capanã,2004,IT
+352360,Torá,2004,IT
+352361,Diahui,2005,IT
+352364,Aripuanã,1994,IT
+352371,Panará,2002,IT
+352372,Sarauá,2002,IT
+352392,Barreirinha,2005,IT
+352393,Nova Jacundá,1996,IT
+352394,Kuruáya,2005,IT
+352395,Xipaya,2003,IT
+352396,Badjonkore,2004,IT
+352398,Karajá Santana do Araguaia,1989,IT
+352410,Wawi,1999,IT
+352412,Parque do Xingu,1987,IT
+352413,Batelão,2004,IT
+352417,Batovi,1999,IT
+352421,Maraiwatsede,1999,IT
+354007,Chapada Limpa,2007,SU
+478418,Iquiri,2008,SU
+478419,Nascentes do Lago Jari,2008,SP
+478420,Médio Purus,2008,SU
+478421,Ituxí,2008,SU
+478422,Rio Xingu,2008,SU
+478426,Renascer,2009,SU
+478431,Mapinguari,2008,SP
+478539,Juma,2006,SU
