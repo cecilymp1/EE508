@@ -1,1 +1,2 @@
-To view the entire work, open the `lab4.RMD` file.
+To view the code work, open the `lab4.RMD` file.
+The resulting visuals end in `.png`
